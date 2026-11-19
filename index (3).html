@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colombina S.A. | Proyecto Integrador</title>
+<meta name="description" content="Análisis del proceso administrativo de Colombina S.A. Ejercicio académico, no es el sitio oficial de la empresa.">
+<meta name="theme-color" content="#00338d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#00338d;--blue2:#1456d6;--deep:#001f5c;--red:#e30613;--yellow:#ffc72c;--amber:#c98300;--green:#128060;--sky:#eaf1ff;--ink:#14213d;--muted:#51607f;--line:#dbe3f2;--bg:#f3f6fc}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:1rem/1.65 'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+h1,h2,h3,h4,.brand{font-family:Montserrat,sans-serif;line-height:1.2}
+a{color:var(--blue2)}button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+h1:focus,h2:focus{outline:none}
+.notice{background:#0f172a;color:#f1f5f9;text-align:center;padding:.6rem 1rem;font-size:.85rem;border-bottom:3px solid var(--red)}
+.notice b{color:#fde047}
+header{position:sticky;top:0;z-index:20;background:var(--blue);box-shadow:0 4px 14px rgba(0,51,141,.25)}
+.hd{max-width:1280px;margin:auto;padding:.7rem 1.25rem;display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:.55rem;color:#fff;text-decoration:none;font-weight:800;font-size:1.3rem}
+nav{display:flex;flex-wrap:wrap;gap:.2rem}
+nav a{color:#dbe6ff;text-decoration:none;font-size:.8rem;font-weight:600;padding:.45rem .65rem;border-radius:8px}
+nav a:hover{background:rgba(255,255,255,.14);color:#fff}
+nav a[aria-current]{background:#fff;color:var(--blue)}
+#bar{display:block;height:4px;width:0;background:linear-gradient(90deg,var(--yellow),var(--red));transition:width .4s}
+main{max-width:1180px;margin:0 auto;padding:2.25rem 1.25rem 1rem}
+.view{display:none}.view.on{display:block}
+.sh{margin-bottom:1.5rem}
+.sh h2{font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--blue);font-weight:800}
+.sh p{color:var(--muted);margin-top:.4rem;max-width:64ch;font-size:1.05rem}
+.sh::after{content:"";display:block;width:90px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--red),var(--yellow));margin-top:1rem}
+h3.t{font-size:1.25rem;color:var(--blue);margin:2rem 0 .8rem}
+.hero{position:relative;overflow:hidden;border-radius:20px;color:#fff;padding:clamp(2rem,6vw,4.5rem) clamp(1.5rem,5vw,4rem) clamp(4rem,8vw,6rem);background:linear-gradient(120deg,var(--deep) 0%,var(--blue) 55%,#b3101f 125%)}
+.hero h1{font-size:clamp(2.6rem,7vw,4.6rem);font-weight:800;letter-spacing:-.02em;position:relative}
+.slogan{color:var(--yellow);font:700 1.2rem Montserrat,sans-serif;margin:.4rem 0 1rem;position:relative}
+.lede{max-width:52ch;color:#e6edff;font-size:1.1rem;position:relative}
+.cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem;position:relative}
+.btn{display:inline-block;background:var(--yellow);color:var(--ink);font-weight:700;padding:.75rem 1.4rem;border-radius:999px;text-decoration:none}
+.btn.o{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6)}
+.btn:hover{filter:brightness(1.08)}
+.candy{position:absolute;right:-30px;top:10px;width:min(48%,440px);opacity:.92;pointer-events:none}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1rem;margin:-3rem 1.25rem 0;position:relative}
+.tile{background:#fff;border-radius:14px;padding:1.1rem 1.25rem;border-top:5px solid var(--c);box-shadow:0 8px 24px rgba(0,51,141,.14);text-decoration:none;color:var(--ink);transition:transform .2s}
+.tile:hover{transform:translateY(-4px)}
+.tile b{display:block;font:800 2.1rem Montserrat,sans-serif;color:var(--c)}
+.tile span{font-size:.88rem;color:var(--muted)}
+.g{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--c,var(--blue));border-radius:14px;padding:1.3rem;box-shadow:0 2px 10px rgba(15,23,42,.05)}
+.card h4{color:var(--c,var(--blue));font-size:1.02rem;margin-bottom:.4rem}
+.card p+p{margin-top:.6rem}
+.card small{display:block;color:var(--muted);font-size:.82rem}
+.card b.v{font:700 1.05rem Montserrat}
+a.card{text-decoration:none;color:var(--ink);transition:transform .2s}a.card:hover{transform:translateY(-3px)}
+.num{display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--c);color:#fff;font:700 .95rem Montserrat,sans-serif;margin-bottom:.5rem}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.75rem 0 1.5rem}
+.tabs button{border:2px solid var(--line);background:#fff;padding:.55rem 1.1rem;border-radius:999px;font-weight:700;color:var(--muted)}
+.tabs button:hover{border-color:var(--blue2)}
+.tabs button[aria-selected=true]{background:var(--blue);border-color:var(--blue);color:#fff}
+.pane[hidden]{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.pill{background:#fff;border:1px solid var(--line);border-left:5px solid var(--c);padding:.35rem .85rem;border-radius:8px;font-weight:600;font-size:.9rem}
+.fl button{border:2px solid var(--line);background:#fff;padding:.4rem .95rem;border-radius:999px;font-weight:600;font-size:.88rem;color:var(--muted)}
+.fl button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.mv{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1rem}
+.mv .card{color:#fff;border:0;background:var(--c)}.mv .card h4{color:var(--yellow);font-size:1.15rem}
+details.s{background:#fff;border:1px solid var(--line);border-radius:12px;padding:.9rem 1.2rem;margin-top:1rem}
+details.s summary{font-weight:700;color:var(--blue);cursor:pointer}details.s p{margin-top:.6rem}
+.orgw{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:1.5rem;align-items:start}
+.lv{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap}
+.lv+.lv{margin-top:1.4rem;position:relative}
+.lv+.lv::before{content:"";position:absolute;left:50%;top:-1.4rem;height:1.4rem;border-left:2px solid var(--blue)}
+.ob{background:#fff;border:2px solid var(--c);color:var(--ink);font-weight:700;padding:.7rem 1.1rem;border-radius:10px;min-width:13rem;flex:1;max-width:20rem}
+.ob:hover,.ob[aria-pressed=true]{background:var(--c);color:#fff}
+.dp{background:#fff;border:1px solid var(--line);border-left:6px solid var(--c,var(--blue));border-radius:14px;padding:1.3rem}
+.dp h4{color:var(--blue);margin-bottom:.4rem}
+.sup{display:grid;gap:.5rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.sup div{background:var(--sky);border-left:5px solid var(--blue);border-radius:8px;padding:.8rem 1rem;font-size:.9rem;color:var(--muted)}
+.sup strong{display:block;color:var(--blue);font-size:.95rem}
+.chain{display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem}
+.st{border:0;color:#fff;background:var(--blue);font:700 .92rem Montserrat,sans-serif;padding:1rem 1.4rem 1rem 1rem;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%);text-align:left;transition:background .25s}
+.st.fail{background:var(--red)}.st.hit{background:var(--amber)}
+.st:hover{filter:brightness(1.15)}
+.vb{display:flex;gap:2.5rem;align-items:flex-end;height:13rem;padding:0 1rem}
+.vb div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:.25rem}
+.vb i{display:block;width:70%;height:var(--h);border-radius:8px 8px 0 0}
+.vb b{font:800 1.3rem Montserrat}.vb span{font-size:.85rem;color:var(--muted)}
+.hb{display:grid;grid-template-columns:5.5rem 1fr;gap:.5rem 1rem;align-items:center;margin-top:1rem}
+.hb i{display:block;height:2rem;border-radius:6px;transform-origin:left;color:#fff;font:700 .9rem Montserrat,sans-serif;padding:.3rem .7rem}
+.fd{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:.8rem;overflow:hidden}
+.fd[data-k=g]{border-left:6px solid var(--red)}.fd[data-k=f]{border-left:6px solid var(--green)}.fd[data-k=n]{border-left:6px solid #94a3b8}
+.fd summary{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .8rem;padding:1rem 1.25rem;cursor:pointer}
+.fd summary::-webkit-details-marker{display:none}
+.fd summary::after{content:"+";margin-left:auto;font:700 1.5rem Montserrat,sans-serif;color:var(--blue)}
+.fd[open] summary::after{content:"−"}
+.fd h3{font-size:1.1rem}
+.fb{padding:0 1.25rem 1.25rem;display:grid;gap:.8rem}
+.fb dt{font:700 .85rem Montserrat,sans-serif;color:var(--blue)}
+.tag{padding:.12rem .6rem;border-radius:999px;font-size:.78rem;font-weight:700}
+.tag.tg{background:#fde4e6;color:#a30d1a}.tag.tf{background:#dcf2e9;color:#0c6648}.tag.tn{background:#e8edf5;color:var(--muted)}
+.m{font-size:.8rem;color:var(--muted);background:var(--sky);padding:.1rem .65rem;border-radius:999px}
+.sc{position:relative}
+.sc.win{box-shadow:0 0 0 3px var(--yellow),0 8px 24px rgba(0,51,141,.15)}
+.sc h4 span{display:block;font:500 .88rem 'Plus Jakarta Sans',sans-serif;color:var(--muted);margin-top:.2rem}
+.sc label{display:block;font-size:.9rem;margin-top:.8rem}
+.sc label b{color:var(--blue)}
+input[type=range]{width:100%;accent-color:var(--blue)}
+.tot{margin-top:1rem;font:800 2rem Montserrat,sans-serif;color:var(--c)}
+.tot small{display:inline;font:500 .9rem 'Plus Jakarta Sans',sans-serif;color:var(--muted)}
+.rk{height:10px;border-radius:5px;background:var(--line);margin-top:.4rem;overflow:hidden}
+.rk i{display:block;height:100%;background:var(--c);transition:width .3s}
+.focus{background:linear-gradient(120deg,var(--deep),var(--blue));color:#fff;border-radius:16px;padding:1.75rem;margin-top:1.25rem}
+.focus small{color:#c9d6f5}.focus h3{font-size:1.35rem;margin:.4rem 0 .7rem}.focus p{color:#e4ebfb;max-width:70ch}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.steps .card{background:color-mix(in srgb,var(--c) 7%,#fff)}
+.steps h4{font-size:1.15rem}
+.steps ol{padding-left:1.1rem}
+.calc{background:#fff;border:2px dashed var(--line);border-radius:14px;padding:1.2rem;margin-top:1.25rem}
+.calc h4{color:var(--blue);margin-bottom:.6rem}
+.calc label{display:block;font-size:.9rem;margin-bottom:.6rem}
+.calc input{display:block;width:100%;max-width:18rem;padding:.5rem .7rem;border:2px solid var(--line);border-radius:8px;font:inherit}
+.res{font:800 1.5rem Montserrat,sans-serif;margin-top:.5rem}.res.ok{color:var(--green)}.res.no{color:var(--red)}
+.tl{border-left:3px solid var(--line);margin-left:.5rem}
+.tl article{position:relative;padding:0 0 1.5rem 1.6rem}
+.tl article::before{content:"";position:absolute;left:-.62rem;top:.35rem;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--c);border:3px solid var(--bg)}
+.tl h4{font-size:1rem}.tl .todo{color:var(--muted);font-style:italic}
+.src{list-style:none;display:grid;gap:.6rem}
+.src li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--c);border-radius:10px;padding:.7rem 1rem;font-size:.93rem}
+.src .tag{background:var(--sky);color:var(--blue);margin-right:.4rem}
+.pager{display:flex;justify-content:space-between;gap:1rem;margin-top:3rem}
+.pager a{background:#fff;border:2px solid var(--line);border-radius:12px;padding:.7rem 1.2rem;text-decoration:none;font-weight:700;color:var(--blue)}
+.pager a:hover{border-color:var(--blue)}.pager small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
+.pager a:last-child{margin-left:auto;text-align:right}
+footer{max-width:1180px;margin:0 auto;padding:1.5rem 1.25rem 2.5rem;font-size:.85rem;color:var(--muted)}
+@keyframes fl{50%{transform:translateY(-12px) rotate(3deg)}}
+@keyframes gv{from{transform:scaleY(0)}}@keyframes gh{from{transform:scaleX(0)}}
+@media(prefers-reduced-motion:no-preference){.candy .c{animation:fl 6s ease-in-out infinite}.candy .c2{animation-delay:-2s}.candy .c3{animation-delay:-4s}.vb i{transform-origin:bottom;animation:gv .9s both}.hb i{animation:gh .9s both}html{scroll-behavior:smooth}}
+@media(max-width:1000px){.orgw{grid-template-columns:1fr}.chain{grid-template-columns:1fr}.st{clip-path:none;border-radius:10px}}
+@media(max-width:760px){.hd{padding:.5rem .75rem}nav{flex-wrap:nowrap;overflow-x:auto;width:100%}nav a{white-space:nowrap}.candy{opacity:.25}.tiles{margin:-2rem .5rem 0}.hb{grid-template-columns:4.5rem 1fr}}
+</style>
+</head>
+<body>
+<div class="notice"><b>Aviso académico:</b> este sitio es un análisis del Proyecto Integrador de la Escuela Nacional del Deporte y <strong>no es el sitio oficial</strong> de Colombina S.A.</div>
+<header>
+  <div class="hd">
+    <a class="brand" href="#inicio"><svg width="34" height="22" viewBox="0 0 34 22" aria-hidden="true"><path d="M0 4l7 7-7 7zM34 4l-7 7 7 7z" fill="#ffc72c"/><rect x="6" y="1" width="22" height="20" rx="10" fill="#e30613"/></svg>Colombina S.A.</a>
+    <nav aria-label="Secciones">
+      <a href="#inicio">Inicio</a><a href="#organizacion">1. La organización</a><a href="#cadena-valor">2. Cadena de valor</a><a href="#hallazgos">3. Hallazgos</a><a href="#oportunidad">4. Oportunidad prioritaria</a><a href="#recomendaciones">5. Recomendaciones</a><a href="#bitacora">6. Bitácora del equipo</a><a href="#fuentes-ia">7. Fuentes y uso de IA</a>
+    </nav>
+  </div>
+  <i id="bar"></i>
+</header>
+<main>
+
+<section class="view" id="inicio">
+  <div class="hero">
+    <svg class="candy" viewBox="0 0 440 320" aria-hidden="true">
+      <g transform="translate(30 30)"><g class="c"><path d="M0 40l40 30-40 30z" fill="#ffc72c"/><path d="M180 40l-40 30 40 30z" fill="#ffc72c"/><rect x="30" y="15" width="120" height="110" rx="55" fill="#e30613"/><path d="M52 55q38-30 76 0" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round"/></g></g>
+      <g transform="translate(210 120)"><g class="c c2"><path d="M0 40l40 30-40 30z" fill="#fff"/><path d="M180 40l-40 30 40 30z" fill="#fff"/><rect x="30" y="15" width="120" height="110" rx="55" fill="#ffc72c"/><path d="M52 85q38 30 76 0" stroke="#00338d" stroke-width="9" fill="none" stroke-linecap="round"/></g></g>
+      <g transform="translate(60 190) scale(.7)"><g class="c c3"><path d="M0 40l40 30-40 30z" fill="#e30613"/><path d="M180 40l-40 30 40 30z" fill="#e30613"/><rect x="30" y="15" width="120" height="110" rx="55" fill="#fff"/><path d="M52 55q38-30 76 0" stroke="#e30613" stroke-width="9" fill="none" stroke-linecap="round"/></g></g>
+    </svg>
+    <h1>Colombina S.A.</h1>
+    <p class="slogan">El sabor es infinito</p>
+    <p class="lede">Análisis del proceso administrativo de la compañía de alimentos: cómo se organiza, dónde están sus fortalezas y brechas, y qué recomendamos mejorar.</p>
+    <div class="cta"><a class="btn" href="#organizacion">Comenzar el recorrido</a><a class="btn o" href="#oportunidad">Ver la oportunidad prioritaria</a></div>
+  </div>
+  <div class="tiles" id="tiles"></div>
+  <h3 class="t">Integrantes</h3>
+  <div class="chips" id="team"></div>
+  <h3 class="t">Recorrido</h3>
+  <div class="g" id="idx"></div>
+</section>
+
+<section class="view" id="organizacion">
+  <div class="sh"><h2>1. La organización</h2><p>Colombina S.A. es una empresa de alimentos que fabrica y vende dulces, chocolates, galletas, helados, salsas y conservas.</p></div>
+  <div data-tabs>
+    <div class="tabs"><button>Perfil</button><button>Marco estratégico</button><button>Grupos de interés</button><button>Estructura y control</button></div>
+
+    <div class="pane">
+      <h3 class="t" style="margin-top:0">Quiénes son</h3>
+      <p>Fundada en 1927 en el Valle del Cauca. Su planta principal y sede histórica está en La Paila, Zarzal.</p>
+      <h3 class="t">Marcas</h3><div class="chips" id="brands"></div>
+      <h3 class="t">Dónde opera</h3>
+      <div class="g">
+        <div class="card" style="--c:var(--blue)"><small>Planta principal</small><b class="v">La Paila, Zarzal</b><small>Valle del Cauca</small></div>
+        <div class="card" style="--c:var(--red)"><small>Sede administrativa</small><b class="v">Cali</b></div>
+        <div class="card" style="--c:var(--amber)"><small>Centros de distribución</small><b class="v">Cali, Bogotá, Barranquilla y Medellín</b></div>
+      </div>
+      <h3 class="t">Cómo se clasifica</h3><div class="g" id="clas"></div>
+    </div>
+
+    <div class="pane">
+      <div class="mv">
+        <div class="card" style="--c:var(--blue)"><h4>Misión</h4><p>Ser líder en alimentos, cautivando al consumidor con innovación y sabor, con marcas reconocidas y bien comercializadas, comprometida con la mejora continua, el medio ambiente y sus clientes.</p></div>
+        <div class="card" style="--c:var(--red)"><h4>Visión</h4><p>Ser una compañía global, basada en un modelo sostenible, que cuida a su gente y al entorno.</p></div>
+      </div>
+      <h3 class="t">Objetivos estratégicos</h3>
+      <div class="g">
+        <div class="card" style="--c:var(--blue)"><h4>Financiero</h4><p>Generar valor a largo plazo con crecimiento y eficiencia.</p></div>
+        <div class="card" style="--c:var(--red)"><h4>Mercado</h4><p>Atraer y fidelizar clientes con buena cobertura y precios justos.</p></div>
+        <div class="card" style="--c:var(--amber)"><h4>Capital estratégico</h4><p>Fortalecer el talento humano, la organización y la tecnología.</p></div>
+        <div class="card" style="--c:var(--green)"><h4>Calidad y sostenibilidad</h4><p>Garantizar inocuidad y cuidar el medio ambiente.</p></div>
+      </div>
+      <details class="s"><summary>¿Son objetivos SMART?</summary><p>No del todo. Dicen hacia dónde va la empresa, pero no traen cifras ni fechas, así que no son específicos ni medibles. En otros niveles sí hay objetivos medibles: a los vicepresidentes los evalúan con objetivos medibles y con plazo, y la sostenibilidad tiene metas a cinco años. Las cifras de esas metas no están publicadas.</p></details>
+      <h3 class="t">Entorno económico y político-legal</h3>
+      <div class="g">
+        <div class="card" style="--c:var(--blue2)"><h4>Político-legal</h4><p>La reforma tributaria creó un impuesto a los productos ultraprocesados con alto contenido de azúcar. Puede encarecer productos como Bon Bon Bum y Nucita y reducir su consumo.</p></div>
+        <div class="card" style="--c:var(--amber)"><h4>Económico</h4><p>El precio mundial del azúcar y del cacao sube por el cambio climático, lo que aumenta los costos de producción.</p></div>
+      </div>
+    </div>
+
+    <div class="pane">
+      <div class="fl chips" id="sf" style="margin-bottom:1.2rem"></div>
+      <div class="g" id="stk"></div>
+    </div>
+
+    <div class="pane">
+      <p style="margin-bottom:1.2rem">Estructura jerárquica: las órdenes bajan de arriba hacia abajo. Toca cada nivel para ver su detalle.</p>
+      <div class="orgw"><div id="orgm"></div><div class="dp" id="orgd"></div></div>
+      <div class="g" style="margin-top:1.5rem">
+        <div class="card" style="--c:var(--blue)"><h4>Dirección</h4><p>Nuestra lectura es un liderazgo de largo plazo, propio de una empresa familiar, enfocado en la sostenibilidad y en formar a su gente. Ninguna fuente lo describe de forma directa, por eso es una interpretación nuestra.</p><p>Las políticas se publican en una librería digital y se avisan por correo corporativo. La línea confidencial Colombina Ética recibe reportes de irregularidades.</p></div>
+        <div class="card" style="--c:var(--red)"><h4>Control</h4><p>Control por capas: Revisoría Fiscal (Deloitte), Auditoría Interna y un Comité de Riesgos que sigue 11 riesgos principales. Publica resultados financieros cada trimestre.</p><p>En promedio, el 20 % del pago de la alta gerencia depende de los indicadores (KPI) de la empresa, entre ellos uno de sostenibilidad.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="pager"><a href="#inicio"><small>Anterior</small>Inicio</a><a href="#cadena-valor"><small>Siguiente</small>2. Cadena de valor</a></div>
+</section>
+
+<section class="view" id="cadena-valor">
+  <div class="sh"><h2>2. Cadena de valor (Porter, 1985)</h2><p>Las actividades de apoyo sostienen toda la operación. Las principales llevan el producto desde la materia prima hasta el consumidor.</p></div>
+  <h3 class="t" style="margin-top:0">Actividades de apoyo</h3>
+  <div class="sup">
+    <div><strong>Infraestructura de la empresa</strong>Planeación, finanzas, área jurídica y gobierno corporativo.</div>
+    <div><strong>Gestión humana</strong>Selección, formación técnica en plantas, bienestar y cultura.</div>
+    <div><strong>Tecnología e innovación</strong>Automatización, analítica de datos comerciales y nuevos productos.</div>
+    <div><strong>Abastecimiento</strong>Compra de azúcar, cacao, lácteos y empaques, y relación con cañicultores, cacaoteros y agricultores.</div>
+  </div>
+  <h3 class="t">Actividades principales: simula una falla</h3>
+  <p style="margin-bottom:1rem">Toca la actividad que falla y mira cómo se propaga el efecto por el resto de la cadena.</p>
+  <div class="chain" id="chain"></div>
+  <div class="dp" id="chd" style="margin-top:1.25rem"></div>
+  <div class="pager"><a href="#organizacion"><small>Anterior</small>1. La organización</a><a href="#hallazgos"><small>Siguiente</small>3. Hallazgos</a></div>
+</section>
+
+<section class="view" id="hallazgos">
+  <div class="sh"><h2>3. Hallazgos</h2><p>Fortalezas y brechas del Corte II, por función del proceso administrativo. La certeza indica qué tan respaldado está cada hallazgo.</p></div>
+  <h3 class="t" style="margin-top:0">Los números detrás de la brecha de control</h3>
+  <div class="g">
+    <div class="card" style="--c:var(--blue)"><h4>Ingresos del primer semestre, en billones de pesos</h4>
+      <div class="vb"><div><b>1,65</b><i style="--h:140px;background:var(--blue)"></i><span>2025</span></div><div><b>1,64</b><i style="--h:139px;background:var(--red)"></i><span>2026</span></div></div>
+      <small style="margin-top:.8rem">Casi iguales: la empresa no creció.</small></div>
+    <div class="card" style="--c:var(--red)"><h4>Cambio de las ventas en 2026</h4>
+      <div class="hb"><span>Colombia</span><i style="width:67%;background:var(--green)">+8 %</i><span>Exterior</span><i style="width:100%;background:var(--red)">−12 %</i></div>
+      <small style="margin-top:1rem">El exterior cayó por el peso fuerte y frenó el crecimiento.<br>Fuentes: Pérez Godoy (2025); Rodríguez Ángel (2026).</small></div>
+  </div>
+  <h3 class="t">Fortalezas y brechas</h3>
+  <div class="fl chips" id="ff" style="margin-bottom:1rem"></div>
+  <div id="fl"></div>
+  <h3 class="t">Conclusión</h3>
+  <div class="g">
+    <div class="card" style="--c:var(--red)"><h4>Brecha 1: planeación</h4><p>Los objetivos no tienen cifras ni fechas publicadas, y eso dificulta medir si la empresa cumple.</p></div>
+    <div class="card" style="--c:var(--red)"><h4>Brecha 2: control</h4><p>Los ingresos casi no crecen porque las ventas del exterior caen con el peso fuerte, y eso frena su meta de ser una empresa global.</p></div>
+    <div class="card" style="--c:var(--green)"><h4>Fortaleza</h4><p>Una estructura de gobierno clara y publicada.</p></div>
+  </div>
+  <p style="margin-top:1rem">Las dos brechas son posibles, no confirmadas, porque se apoyan en fuentes públicas y no en una encuesta o visita propia.</p>
+  <div class="pager"><a href="#cadena-valor"><small>Anterior</small>2. Cadena de valor</a><a href="#oportunidad"><small>Siguiente</small>4. Oportunidad prioritaria</a></div>
+</section>
+
+<section class="view" id="oportunidad">
+  <div class="sh"><h2>4. Oportunidad prioritaria</h2><p>Cada brecha se califica de 1 a 3 en impacto, urgencia y viabilidad. Mueve los controles para ver cómo cambia la prioridad.</p></div>
+  <div class="g" id="sc"></div>
+  <div style="margin-top:1rem"><button class="btn" id="rs" style="border:0">Restablecer puntajes del equipo</button></div>
+  <div class="focus"><small>Oportunidad prioritaria, formulada en positivo</small><h3 id="ot"></h3><p id="oj"></p></div>
+  <div class="pager"><a href="#hallazgos"><small>Anterior</small>3. Hallazgos</a><a href="#recomendaciones"><small>Siguiente</small>5. Recomendaciones</a></div>
+</section>
+
+<section class="view" id="recomendaciones">
+  <div class="sh"><h2>5. Recomendaciones</h2><p>Tres propuestas, cada una con las cuatro etapas del proceso administrativo: planear, organizar, dirigir y controlar.</p></div>
+  <div data-tabs id="rt"></div>
+  <div class="pager"><a href="#oportunidad"><small>Anterior</small>4. Oportunidad prioritaria</a><a href="#bitacora"><small>Siguiente</small>6. Bitácora del equipo</a></div>
+</section>
+
+<section class="view" id="bitacora">
+  <div class="sh"><h2>6. Bitácora del equipo</h2><p>Registro del trabajo de cada integrante. Filtra por persona.</p></div>
+  <div class="fl chips" id="bf" style="margin-bottom:1.5rem"></div>
+  <div class="tl" id="tl"></div>
+  <div class="pager"><a href="#recomendaciones"><small>Anterior</small>5. Recomendaciones</a><a href="#fuentes-ia"><small>Siguiente</small>7. Fuentes y uso de IA</a></div>
+</section>
+
+<section class="view" id="fuentes-ia">
+  <div class="sh"><h2>7. Fuentes y uso de IA</h2><p>Referencias consultadas y declaración de uso de inteligencia artificial.</p></div>
+  <h3 class="t" style="margin-top:0">Fuentes</h3>
+  <ul class="src" id="src"></ul>
+  <h3 class="t">Declaración de uso de IA</h3>
+  <div class="g">
+    <div class="card" style="--c:var(--blue)"><h4>Herramientas</h4><p>Google Gemini y Claude (Anthropic).</p></div>
+    <div class="card" style="--c:var(--red)"><h4>Uso</h4><p>Maquetación y diseño del sitio, y borradores de redacción de las secciones 2, 4 y 5 a partir de los informes del equipo.</p></div>
+    <div class="card" style="--c:var(--green)"><h4>Datos</h4><p>La información de la empresa y los hallazgos provienen del informe del Corte II y de las fuentes citadas. La IA no fue fuente de datos.</p></div>
+  </div>
+  <p style="margin-top:1rem" class="sub">De acuerdo con las políticas de integridad académica de la asignatura.</p>
+  <div class="pager"><a href="#bitacora"><small>Anterior</small>6. Bitácora del equipo</a></div>
+</section>
+
+</main>
+<footer>Colombina S.A. · Proyecto Integrador · Escuela Nacional del Deporte. Ejercicio de análisis académico; no es el sitio oficial de Colombina S.A.</footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const fmt=(n,d=0)=>n.toLocaleString('es-CO',{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const C=['#00338d','#e30613','#c98300','#128060','#1456d6','#7a3db5'];
+const TEAM=['Maicol Londoño','Daniel Hurtado López','María Berli López Cáceres','Cristin Pamela'];
+
+const TILES=[
+ {v:1927,l:'Año de fundación',h:'#organizacion',c:C[0]},
+ {v:9,l:'Miembros de la Junta Directiva',h:'#organizacion',c:C[1]},
+ {v:16.7,d:1,s:' %',l:'Participación de la sociedad familiar Caicedo',h:'#organizacion',c:C[3]},
+ {v:-12,s:' %',l:'Ventas en el exterior en 2026',h:'#hallazgos',c:C[2]}];
+$('#tiles').innerHTML=TILES.map(t=>`<a class="tile" href="${t.h}" style="--c:${t.c}"><b data-v="${t.v}" data-d="${t.d||0}" data-s="${t.s||''}">0</b><span>${t.l}</span></a>`).join('');
+$('#team').innerHTML=TEAM.map((n,i)=>`<span class="pill" style="--c:${C[i]}">${n}</span>`).join('');
+const IDX=[['#organizacion','1. La organización','Qué es Colombina, cómo se estructura y quiénes la rodean.'],['#cadena-valor','2. Cadena de valor','Simula qué pasa cuando falla una actividad.'],['#hallazgos','3. Hallazgos','Fortalezas y brechas, con los números del semestre.'],['#oportunidad','4. Oportunidad prioritaria','Califica las brechas y mira cuál gana.'],['#recomendaciones','5. Recomendaciones','Tres propuestas con calculadora de indicadores.'],['#bitacora','6. Bitácora del equipo','El trabajo de cada integrante.'],['#fuentes-ia','7. Fuentes y uso de IA','Referencias y declaración de IA.']];
+$('#idx').innerHTML=IDX.map((x,i)=>`<a class="card" href="${x[0]}" style="--c:${C[i%6]}"><span class="num">${i+1}</span><h4>${x[1].slice(3)}</h4><p>${x[2]}</p></a>`).join('');
+
+$('#brands').innerHTML=['Bon Bon Bum','Nucita','Grissly','Choco Break','Coffee Delight','Colombina 100 %'].map((b,i)=>`<span class="pill" style="--c:${C[i]}">${b}</span>`).join('');
+$('#clas').innerHTML=[['Tamaño','Gran empresa'],['Origen del capital','Privado y familiar (familia Caicedo)'],['Sector','Industrial: transforma materias primas en alimentos'],['Forma jurídica','Sociedad anónima (S.A.)'],['Ámbito','Multinacional, con plantas en Colombia, Guatemala y España'],['Finalidad','Con ánimo de lucro']].map((x,i)=>`<div class="card" style="--c:${C[i]}"><small>${x[0]}</small><b class="v">${x[1]}</b></div>`).join('');
+
+const STK=[['i','Colaboradores'],['i','Accionistas y familia fundadora'],['i','Directivos'],['e','Clientes y consumidores finales (niños, jóvenes, familias)'],['e','Proveedores de materia prima (cañicultores, cacaoteros, agricultores)'],['e','Distribuidores, supermercados y tiendas (Éxito, Olímpica, D1)'],['e','Comunidad de La Paila y Zarzal'],['e','Gobierno y entes reguladores (INVIMA, DIAN)'],['e','Medio ambiente']];
+function filters(box,opts,fn){
+  box.innerHTML=opts.map((o,i)=>`<button aria-pressed="${i===0}" data-k="${o[0]}">${o[1]}</button>`).join('');
+  $$('button',box).forEach(b=>b.onclick=()=>{$$('button',box).forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)});
+}
+function stk(k){$('#stk').innerHTML=STK.filter(s=>k==='*'||s[0]===k).map(s=>`<div class="card" style="--c:${s[0]==='i'?C[0]:C[1]}"><small>${s[0]==='i'?'Interno':'Externo'}</small><b class="v">${s[1]}</b></div>`).join('')}
+filters($('#sf'),[['*','Todos'],['i','Internos'],['e','Externos']],stk);stk('*');
+
+const ORG=[['Asamblea General de Accionistas','Es la máxima autoridad de la empresa. La sociedad familiar Caicedo es la mayor accionista, con el 16,7 %.'],['Junta Directiva','Tiene 9 miembros y varios de ellos son de la familia Caicedo. Toma las decisiones grandes junto con la Asamblea y el Presidente.'],['Presidente Ejecutivo','César Caicedo. Da instrucciones a todas las vicepresidencias.'],['Unidades corporativas','Finanzas, jurídica, gestión humana y supply chain.'],['Unidades de negocio','Confitería, galletería y helados, entre otras.']];
+const OC=[C[0],C[1],C[3],C[4],C[5]];
+const ob=(i)=>`<button class="ob" style="--c:${OC[i]}" aria-pressed="false" data-i="${i}">${ORG[i][0]}</button>`;
+$('#orgm').innerHTML=`<div class="lv">${ob(0)}</div><div class="lv">${ob(1)}</div><div class="lv">${ob(2)}</div><div class="lv">${ob(3)}${ob(4)}</div>`;
+function org(i){$$('.ob').forEach(b=>b.setAttribute('aria-pressed',b.dataset.i==i));$('#orgd').style.setProperty('--c',OC[i]);$('#orgd').innerHTML=`<h4>${ORG[i][0]}</h4><p>${ORG[i][1]}</p>`}
+$$('.ob').forEach(b=>b.onclick=()=>org(+b.dataset.i));org(0);
+
+const CH=[
+ ['Logística interna','Recibir, inspeccionar y almacenar materias primas e insumos de empaque.','Supply chain','Sin materias primas ni empaques a tiempo, las plantas paran o producen menos.'],
+ ['Operaciones','Formular, mezclar, cocinar, moldear, hornear y empacar en las plantas.','Unidades de negocio','Baja la producción o la inocuidad: hay menos producto para despachar y más reprocesos.'],
+ ['Logística externa','Almacenar en los centros de distribución y despachar a tiendas, supermercados y puertos.','Supply chain','El producto no llega a tiempo a tiendas y supermercados: hay agotados y pedidos incompletos.'],
+ ['Marketing y ventas','Posicionar las marcas, ejecutar promociones y atender a los clientes comerciales.','Unidades de negocio','Una promoción sin coordinar con planta y distribución sobrecarga las plantas, agota empaques y deja pedidos incompletos.'],
+ ['Servicio posventa','Atender reclamos, devoluciones y averías, y apoyar a tenderos y aliados.','Servicio al cliente','Los reclamos quedan sin respuesta y se pierde la confianza de tenderos y aliados.']];
+function chain(f){
+  $('#chain').innerHTML=CH.map((c,i)=>`<button class="st ${i===f?'fail':i>f?'hit':''}" data-i="${i}" aria-pressed="${i===f}">${c[0]}</button>`).join('');
+  $$('.st').forEach(b=>b.onclick=()=>chain(+b.dataset.i));
+  const c=CH[f],after=CH.slice(f+1).map(x=>x[0]);
+  $('#chd').style.setProperty('--c',C[1]);
+  $('#chd').innerHTML=`<h4>${c[0]}</h4><p>${c[1]}</p><p><strong>Responsable:</strong> ${c[2]}</p><p><strong>Si falla aquí:</strong> ${c[3]}</p><p><strong>Se afectan después:</strong> ${after.length?after.join(', '):'es la última actividad de la cadena'}.</p>`;
+}
+chain(3);
+
+const F=[
+ {f:'Planeación',k:'g',c:'Certeza: posible',a:'Área administrativa',d:'A sus directivos les exigen objetivos medibles y con plazo (Colombina S.A., 2024). La sostenibilidad tiene metas a cinco años (Montes Suárez, 2026).',e:'Los cuatro objetivos estratégicos no traen cifras ni fechas (Grupo de trabajo, 2026). Las cifras de las metas a cinco años no están publicadas (Montes Suárez, 2026).',x:'Nadie de afuera puede medir si la empresa cumple lo que se propone.'},
+ {f:'Organización',k:'f',c:'Certeza: confirmada',a:'Área administrativa',d:'Su Código de Buen Gobierno define tres niveles: administración, gestión corporativa y control (Colombina S.A., 2023).',e:'El organigrama muestra esos niveles (Grupo Empresarial Colombina, s. f.) y el Informe de Gobierno 2023 lo confirma: Junta de 9 miembros, tres comités y Revisoría Fiscal (Colombina S.A., 2024).',x:'Cada quien sabe qué le toca y hay control por capas.'},
+ {f:'Dirección',k:'n',o:'No encontramos información directa sobre el estilo de liderazgo ni la comunicación interna, y no lo tomamos como brecha.'},
+ {f:'Control',k:'g',c:'Certeza: posible',a:'Área financiera y comercial',d:'Quiere generar valor a largo plazo con crecimiento y eficiencia (Grupo de trabajo, 2026).',e:'Los ingresos del primer semestre de 2026 ($1,64 billones) quedaron casi iguales a los de 2025 ($1,65 billones). Las ventas en el exterior cayeron 12 % por el peso fuerte (Pérez Godoy, 2025; Rodríguez Ángel, 2026).',x:'El crecimiento depende de Colombia (+8 %) mientras el exterior baja.'}];
+const TG={g:'Brecha',f:'Fortaleza',n:'Sin información'};
+function fnd(k){
+  $('#fl').innerHTML=F.filter(o=>k==='*'||o.k===k).map((o,i)=>`<details class="fd" data-k="${o.k}" ${i===0?'open':''}><summary><span class="tag t${o.k}">${TG[o.k]}</span><h3>${o.f}</h3>${o.c?`<span class="m">${o.c}</span><span class="m">${o.a}</span>`:''}</summary><div class="fb">${o.o?`<p>${o.o}</p>`:`<dl><dt>Lo que la organización dice</dt><dd>${o.d}</dd></dl><dl><dt>Lo que encontramos</dt><dd>${o.e}</dd></dl><dl><dt>Consecuencia</dt><dd>${o.x}</dd></dl>`}</div></details>`).join('');
+}
+filters($('#ff'),[['*','Todos'],['f','Fortalezas'],['g','Brechas'],['n','Sin información']],fnd);fnd('*');
+
+const B0=[[3,3,2],[2,2,3]];
+const B=[{n:'Control',d:'Ingresos casi sin crecimiento por la caída de ventas en el exterior',c:C[1]},{n:'Planeación',d:'Objetivos estratégicos sin cifras ni fechas',c:C[0]}];
+const CR=['Impacto','Urgencia','Viabilidad'],LV=['','bajo','medio','alto'];
+const OT={Control:['Fortalecer el seguimiento de las ventas por mercado y por moneda para recuperar el crecimiento de los ingresos del exterior.','Con los puntajes del equipo: impacto 3, porque afecta directamente la meta de ser una empresa global; urgencia 3, porque los ingresos casi no crecieron y el exterior cayó 12 %; viabilidad 2, porque la empresa ya publica resultados cada trimestre y mide por indicadores, pero no controla el tipo de cambio.'],Planeación:['Publicar metas con cifra y fecha para cada objetivo estratégico, de modo que se pueda medir su cumplimiento.','Con estos puntajes, la brecha de planeación pasa adelante: se puede corregir con decisiones internas y publicando información que la empresa ya maneja.']};
+$('#sc').innerHTML=B.map((b,i)=>`<div class="card sc" style="--c:${b.c}"><h4>${b.n}<span>${b.d}</span></h4>${CR.map((c,j)=>`<label>${c}: <b></b><input type="range" min="1" max="3" step="1" data-i="${i}" data-j="${j}"></label>`).join('')}<div class="tot"></div><div class="rk"><i></i></div></div>`).join('');
+const V=B0.map(r=>[...r]);
+function upd(){
+  const t=V.map(r=>r[0]+r[1]+r[2]),m=Math.max(...t),w=t.filter(x=>x===m).length===1?t.indexOf(m):-1;
+  $$('.sc').forEach((el,i)=>{
+    $$('input',el).forEach((r,j)=>{r.value=V[i][j];r.previousElementSibling.textContent=V[i][j]+' ('+LV[V[i][j]]+')'});
+    $('.tot',el).innerHTML=t[i]+' / 9 <small>puntos</small>';$('.rk i',el).style.width=t[i]/9*100+'%';el.classList.toggle('win',i===w);
+  });
+  $('#ot').textContent=w<0?'Empate: ninguna brecha pasa adelante con estos puntajes.':OT[B[w].n][0];
+  $('#oj').textContent=w<0?'Ajusta un criterio para desempatar y decidir cuál brecha atender primero.':OT[B[w].n][1];
+}
+$$('.sc input').forEach(r=>r.oninput=()=>{V[r.dataset.i][r.dataset.j]=+r.value;upd()});
+$('#rs').onclick=()=>{B0.forEach((r,i)=>V[i]=[...r]);upd()};upd();
+
+const ST=[['Planear','Objetivo',C[0]],['Organizar','Acciones',C[1]],['Dirigir','Responsable',C[2]],['Controlar','Indicador',C[3]]];
+const R=[
+ {t:'Reportar las ventas del exterior en moneda local y en pesos',o:'Separar el efecto del cambio de moneda del desempeño comercial en cada mercado.',a:['Presentar las ventas de cada mercado en moneda local y en pesos.','Revisar cada mes las desviaciones con el equipo comercial.'],r:'Área financiera junto con el equipo comercial del exterior.',i:'Mercados con reporte mensual en ambas monedas. Meta propuesta: 100 %.',k:{a:'Mercados con reporte mensual en ambas monedas',b:'Total de mercados',f:(a,b)=>a/b*100,ok:v=>v>=100,t:'Indicador'}},
+ {t:'Revisar precios y coberturas cambiarias por mercado',o:'Reducir el efecto del peso fuerte sobre los ingresos del exterior.',a:['Revisar cada trimestre la política de cobertura cambiaria.','Ajustar las listas de precios por mercado.','Priorizar los mercados y productos de mayor margen.'],r:'Área financiera (tesorería) y dirección comercial.',i:'Variación de los ingresos del exterior frente al mismo trimestre del año anterior. Meta propuesta: igual o mayor a 0 %.',k:{a:'Ingresos del exterior, trimestre actual',b:'Ingresos del mismo trimestre del año anterior',f:(a,b)=>(a/b-1)*100,ok:v=>v>=0,t:'Variación'}},
+ {t:'Publicar metas con cifra y fecha para los objetivos estratégicos',o:'Que cualquier persona pueda medir si la empresa cumple sus cuatro objetivos estratégicos.',a:['Definir uno o dos indicadores por objetivo, con meta y plazo.','Publicarlos en el informe anual.','Revisarlos cada año en la Junta Directiva.'],r:'Presidente Ejecutivo y Junta Directiva.',i:'Objetivos con meta y fecha publicadas. Meta propuesta: 4 de 4.',k:{a:'Objetivos con meta y fecha publicadas',b:'Objetivos estratégicos',f:(a,b)=>a/b*100,ok:v=>v>=100,t:'Indicador',db:4}}];
+$('#rt').innerHTML=`<div class="tabs">${R.map((r,i)=>`<button>Recomendación ${i+1}</button>`).join('')}</div>`+R.map((r,n)=>`<div class="pane"><h3 class="t" style="margin-top:0">${r.t}</h3><div class="steps">${[`<p>${r.o}</p>`,`<ol>${r.a.map(x=>`<li>${x}</li>`).join('')}</ol>`,`<p>${r.r}</p>`,`<p>${r.i}</p>`].map((h,i)=>`<div class="card" style="--c:${ST[i][2]}"><small>${ST[i][1]}</small><h4>${i+1}. ${ST[i][0]}</h4>${h}</div>`).join('')}</div><div class="calc" data-n="${n}"><h4>Calcula el indicador</h4><label>${r.k.a}<input type="number" min="0" step="any" data-x="a"></label><label>${r.k.b}<input type="number" min="0" step="any" data-x="b" ${r.k.db?`value="${r.k.db}"`:''}></label><div class="res">Escribe los datos para ver el resultado.</div></div></div>`).join('');
+$$('.calc').forEach(c=>{const k=R[c.dataset.n].k,a=$('[data-x=a]',c),b=$('[data-x=b]',c),o=$('.res',c);const go=()=>{if(a.value===''||b.value===''||+b.value===0){o.className='res';o.textContent='Escribe los datos para ver el resultado.';return}const v=k.f(+a.value,+b.value),ok=k.ok(v);o.className='res '+(ok?'ok':'no');o.textContent=k.t+': '+fmt(v,1)+' %. '+(ok?'Cumple la meta propuesta.':'Aún no cumple la meta propuesta.')};a.oninput=b.oninput=go});
+
+const BIT=TEAM.map((q,i)=>({f:'Por completar',q:i,a:'Por completar',p:'Por completar'}));
+function bit(k){
+  $('#tl').innerHTML=BIT.filter(e=>k==='*'||e.q==k).map(e=>`<article style="--c:${C[e.q]}"><h4>${TEAM[e.q]}</h4><p class="todo">${e.f}</p><p><strong>Actividad:</strong> <span class="todo">${e.a}</span></p><p><strong>Aporte:</strong> <span class="todo">${e.p}</span></p></article>`).join('');
+}
+filters($('#bf'),[['*','Todo el equipo'],...TEAM.map((n,i)=>[i,n])],bit);bit('*');
+
+const SRC=[['Empresa','Colombina S.A. (2023). <em>Código de Buen Gobierno Corporativo</em>. colombina.com'],['Empresa','Colombina S.A. (2024). <em>Informe anual de gobierno corporativo 2023</em>. colombina.com'],['Equipo','Grupo de trabajo. (2026). <em>Descripción de la empresa y marco estratégico</em> [documento de trabajo, Cortes I y II]. Institución Universitaria Escuela Nacional del Deporte.'],['Empresa','Grupo Empresarial Colombina. (s. f.). <em>Organigrama del Grupo Empresarial Colombina</em> [imagen].'],['Prensa','La Nota Económica. (2026). Nota sobre el Sustainability Yearbook 2026 de S&amp;P Global y Colombina.'],['Prensa','Montes Suárez, D. (2026, 12 de mayo). Sostenibilidad en Colombina genera valor económico, social y ambiental. <em>Valora Analitik</em>.'],['Prensa','Pérez Godoy, M. C. (2025, 12 de agosto). Ingresos de Colombina crecieron 10 % a junio, pero utilidad sintió impacto de impuesto a ultraprocesados. <em>Valora Analitik</em>.'],['Prensa','Rodríguez Ángel, I. (2026, 11 de agosto). El Grupo Empresarial Colombina reportó sus ingresos consolidados por los $1,64 billones. <em>La República</em>.'],['Prensa','Valora Analitik. (2026). Revaluación impactó resultados de Colombina en primer trimestre de 2026; ingresos al interior del país aumentaron.'],['Teoría','Porter, M. E. (1985). <em>Competitive Advantage: Creating and Sustaining Superior Performance</em>. Free Press.']];
+const SC={Empresa:C[0],Equipo:C[3],Prensa:C[1],Teoría:C[2]};
+$('#src').innerHTML=SRC.map(s=>`<li style="--c:${SC[s[0]]}"><span class="tag">${s[0]}</span>${s[1]}</li>`).join('');
+
+$$('[data-tabs]').forEach(c=>{
+  const bs=$$(':scope>.tabs>button',c),ps=$$(':scope>.pane',c);
+  bs.forEach((b,i)=>b.onclick=()=>bs.forEach((x,j)=>{x.setAttribute('aria-selected',i===j);ps[j].hidden=i!==j}));
+  bs[0].click();
+});
+
+function count(){$$('.tile b').forEach(b=>{const v=+b.dataset.v,d=+b.dataset.d,s=b.dataset.s;if(reduce){b.textContent=fmt(v,d)+s;return}const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1100);b.textContent=fmt(v*(1-Math.pow(1-k,3)),d)+s;if(k<1)requestAnimationFrame(f)})(t0)})}
+const views=$$('.view'),links=$$('nav a');
+function show(){
+  let id=location.hash.slice(1);
+  if(!views.some(v=>v.id===id))id='inicio';
+  views.forEach(v=>v.classList.toggle('on',v.id===id));
+  links.forEach(l=>l.getAttribute('href')==='#'+id?l.setAttribute('aria-current','page'):l.removeAttribute('aria-current'));
+  $('#bar').style.width=views.findIndex(v=>v.id===id)/(views.length-1)*100+'%';
+  const h=$('#'+id+' h1, #'+id+' h2');
+  document.title=(id==='inicio'?'Colombina S.A.':h.textContent)+' | Proyecto Integrador';
+  h.tabIndex=-1;h.focus({preventScroll:true});scrollTo(0,0);
+  if(id==='inicio')count();
+}
+addEventListener('hashchange',show);show();
+</script>
+</body>
+</html>
